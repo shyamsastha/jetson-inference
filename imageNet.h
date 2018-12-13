@@ -52,7 +52,6 @@ public:
 	 */
 	enum NetworkType
 	{
-		CUSTOM,
 		ALEXNET,		/**< 1000-class ILSVR12 */
 		GOOGLENET,	/**< 1000-class ILSVR12 */
 		GOOGLENET_12	/**< 12-class subset of ImageNet ILSVR12 from the tutorial */
@@ -61,9 +60,9 @@ public:
 	/**
 	 * Load a new network instance
 	 */
-	static imageNet* Create( NetworkType networkType=GOOGLENET, uint32_t maxBatchSize=2, 
+	static imageNet* Create( NetworkType networkType=GOOGLENET, uint32_t maxBatchSize=1, 
 						precisionType precision=TYPE_FASTEST,
-				   		deviceType device=DEVICE_GPU, bool allowGPUFallback=true );
+				   		deviceType device=DEVICE_DLA_0, bool allowGPUFallback=true );
 	
 	/**
 	 * Load a new network instance
@@ -78,8 +77,8 @@ public:
 						const char* mean_binary, const char* class_labels, 
 						const char* input=IMAGENET_DEFAULT_INPUT, 
 						const char* output=IMAGENET_DEFAULT_OUTPUT, 
-						uint32_t maxBatchSize=2, precisionType precision=TYPE_FASTEST,
-				   		deviceType device=DEVICE_GPU, bool allowGPUFallback=true );
+						uint32_t maxBatchSize=1, precisionType precision=TYPE_FASTEST,
+				   		deviceType device=DEVICE_DLA_0, bool allowGPUFallback=true );
 	
 	/**
 	 * Load a new network instance by parsing the command line.
